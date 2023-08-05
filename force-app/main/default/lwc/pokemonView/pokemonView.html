@@ -1,0 +1,54 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Pokemons" icon-name="utility:animal_and_nature">
+        <template if:true={pokemons}>
+            <lightning-layout multiple-rows="true">
+                <template for:each={pokemons} for:item="pokemonDetails">
+                    <lightning-layout-item key={pokemonDetails.Id} size="3" class="slds-var-p-around_x-small">
+                        <lightning-card title={pokemonDetails.Name} class="pokemon_card">
+                            <div data-extid={pokemonDetails.ExtId__c} class="slds-var-p-horizontal_small" onclick={onHandletModalShow} data-name={pokemonDetails.Name} >
+                                <div class="slds-grid slds-wrap">
+                                    <div class="slds-col slds-size_8-of-12">
+                                        <img src={pokemonDetails.Imagen__c} alt="pokemon" class="pokemon_imagen" />
+                                    </div>
+                                    <div class="slds-col slds-size_4-of-12">
+                                        <p class="slds-var-m-bottom__xx-small">ExtId:{pokemonDetails.extId__c}</p>
+                                        <p class="slds-var-m-bottom__xx-small">Vida:{pokemonDetails.Vida__c}(pts)</p>
+                                        <p class="slds-var-m-bottom__xx-small">Altura:{pokemonDetails.Altura__c}(Mts)</p>
+                                        <p class="slds-var-m-bottom__xx-small">peso:{pokemonDetails.Peso__c}(Kg.)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-card>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+        <template if:true={error}>
+            <h1>No hay data de pokemos para mostrar</h1>
+        </template>
+        <template if:true={modalShow}>
+            <section tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="seccion_modal slds-modal slds-fade-in-open slds-modal_medium">
+                <div class="modalcontainer slds-modal__container slds-box">
+                    <div class="div_header slds-modal__header">
+                        <lightning-avatar src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg"></lightning-avatar>
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Pokemon Info</h1>
+                    </div>
+                    <div class="modalInfo">
+                        <img src={pkDetails.Imagen__c} alt="picachu"/>
+                    </div>
+                    <div class="slds-col slds-size_4-of-12">
+                        <p class="slds-var-m-bottom__xx-small">ExtId:{pkDetails.extId__c}</p>
+                        <p class="slds-var-m-bottom__xx-small">Vida:{pkDetails.Vida__c}(pts)</p>
+                        <p class="slds-var-m-bottom__xx-small">Altura:{pkDetails.Altura__c}(Mts)</p>
+                        <p class="slds-var-m-bottom__xx-small">peso:{pkDetails.Peso__c}(Kg.)</p>
+                    </div>
+                    <div class="pk_pie_pagina">
+                        <lightning-button variant="brand-outline" label="Ok" title="Successful action" onclick={onHandletModalShow} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </lightning-card>
+</template>

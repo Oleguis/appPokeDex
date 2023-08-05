@@ -1,0 +1,28 @@
+.Slot1, .Slot3, .Slot2, .Slot4 {
+  /* border-left: 2px solid #5c5a5a;
+  border-top: 2px solid #5c5a5a;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.etiquetas{
+  margin: 2px 0;
+  padding: 2px 0;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.data-info {
+  min-height: 25px;
+  background-color: lightsteelblue;
+  margin: 2px 0;
+  padding: 2px 0;
+}
+
+.subetiqueta{
+  background-color: #90d0fe;
+  color: royalblue;
+}

@@ -1,0 +1,12 @@
+<template>
+    <div class="container-list-pkm">
+        <template for:each={pokemons} for:item="pkm">
+            <c-tile 
+                key={pkm.Id}
+                product={pkm} 
+                product-id={productId} 
+                ontileclick={handleTileClick}>
+            </c-tile>
+        </template>
+    </div>
+</template>

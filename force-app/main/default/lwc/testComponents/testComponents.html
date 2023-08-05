@@ -1,0 +1,32 @@
+<template>
+    <div class="container-ppalpkm">
+        <div class="slds-p-around_medium lgc-bg iconDiv">
+            <span class="slds-badge titulo">{titulo}</span>
+            <lightning-icon 
+                class="icono"
+                icon-name="utility:task"  
+                size="small"
+                onclick={ocultarFiltrados}>
+            </lightning-icon>
+        </div>
+        <div class="divFiltradosYPokemons">
+            <div class={classDivFiltrados}>
+                <c-filter-and-search 
+                    oneventoparafiltrar={handledFiltererPokemons}>
+                </c-filter-and-search>
+            </div>
+            <div class={classDivListado}>
+                <template for:each={pokemons} for:item="pkm">
+                    <c-tile 
+                        key={pkm.Id} 
+                        product={pkm} 
+                        ontileclick={handleTileClick}>
+                    </c-tile>
+                </template>
+                <template if:false={pokemons}>
+                    <h1>No Data in pokemons</h1>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

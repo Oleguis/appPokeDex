@@ -1,0 +1,83 @@
+<template>
+    <div class={moveDetails.slot}>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-text-align_center small-padding etiquetas subetiqueta">Movimiento ({moveDetails.slot})</div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">ExtId</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Nombre</div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.ExtId__c}</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Name}</div>
+            </div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-text-align_center small-padding etiquetas">Efecto del movimiento</div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-text-align_center slds-text-longform small-padding data-info  efecto_movimiento">{moveDetails.Efecto__c}</div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Punteria (Pts.)</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Prioridad (Pts.)</div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Punteria__c}</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Prioridad__c}</div>
+            </div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-text-align_center small-padding etiquetas">Objetivo</div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div class="slds-box slds-text-align_center slds-text-longform small-padding data-info">{moveDetails.Objetivo__c}</div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Poder (Pts.)</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Pp (Pts.)</div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Poder__c}</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Pp__c}</div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Chance de Efecto (Pts.)</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding etiquetas">Tipo</div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Chance_de_Efecto__c}</div>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-box slds-text-align_center small-padding data-info">{moveDetails.Tipo__c}</div>
+            </div>
+        </div>
+    </div>
+</template>

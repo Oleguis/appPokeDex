@@ -1,0 +1,136 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open
+                     active-section-name={activeSections}>
+        <lightning-accordion-section name="A" label="Filtrado y Busqueda">
+            <c-filter-and-search 
+                oneventoparafiltrar={handledFiltererPokemons}>
+            </c-filter-and-search>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="B" label="Pokemon Info">
+            <template if:true={pkms}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-size_2-of-2">
+                        <div class="titulo slds-box slds-box_x-small slds-text-align_center"># {pkms.ExtId__c} - {pkms.Name}</div>
+                    </div>
+                </div>
+                <div class="slds-box slds-box_x-small container-img">
+                    <img class="product-img" src={pkms.Imagen__c} onclick={editPokemon}></img>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-size_1-of-2">
+                        <div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding etiquetas">Order Nro.</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Numero_de_Pokemon__c}</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding etiquetas">Ataque (Pts.)</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Ataque__c}</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding etiquetas">Altura (Mts.)</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Altura__c}</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding etiquetas">Peso (Kgs.)</div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Peso__c}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-size_1-of-2">
+                        <div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding etiquetas">Genereción</div>
+                                </div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Generacion__c}</div>
+                                </div>
+                            
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding etiquetas">Defensa (Pts.)</div>
+                                </div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Defensa__c}</div>
+                                </div>
+                            
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding etiquetas">Vida</div>
+                                </div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Vida__c}</div>
+                                </div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding etiquetas">Velocidad</div>
+                                </div>
+                                <div class="slds-size_2-of-2">
+                                    <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Velocidad__c}</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-size_2-of-2">
+                    <div class="slds-box slds-text-align_center small-padding etiquetas">Tipos</div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <template if:true={pkms.tipo2}>
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding data-info">{pkms.tipo1}</div>
+                        </div>
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding data-info">{pkms.tipo2}</div>
+                        </div>
+                    </template>
+                    <template if:false={pkms.tipo2}>
+                        <div class="slds-size_2-of-2">
+                            <div class="slds-box slds-text-align_center small-padding data-info">{pkms.tipo1}</div>
+                        </div>
+                    </template>
+
+                </div>
+                <div class="habilidades-div">
+                    <div class="slds-size_2-of-2">
+                        <div class="slds-box slds-text-align_center small-padding etiquetas subetiqueta">Habilidad</div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding etiquetas">ExtId</div>
+                        </div>
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding etiquetas">Nombre</div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Habilidad__r.ExtId__c}</div>
+                        </div>
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-text-align_center small-padding data-info">{pkms.Habilidad__r.Name}</div>
+                        </div>
+                    </div>
+                    <div class="slds-size_2-of-2">
+                        <div class="slds-box slds-text-align_center small-padding etiquetas">Efecto de la habilidad</div>
+                    </div>
+                    <div class="slds-size_2-of-2">
+                        <div class="slds-box slds-text-align_center slds-text-longform small-padding data-info">{pkms.Habilidad__r.Efecto__c}</div>
+                    </div>
+                </div>
+                <template if:true={pkms.moves}>
+                    <template for:each={pkms.moves} for:item="move">
+                    <c-moves-info key={move.ExtId__c} move-details={move} aria-label={move.Name}></c-moves-info>
+                    </template>
+                </template>
+            </template>
+            <template if:false={pkms}>
+                <div>Select a pokemons</div>
+            </template>
+        </lightning-accordion-section>
+    </lightning-accordion>
+</template>

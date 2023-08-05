@@ -1,0 +1,119 @@
+<template>
+    <div class="slds-grid slds-wrap headerConteiner">
+        <!-- <div class="slds-grid slds-wrap formContainer"> -->
+        <div class="slds-size_1-of-12">
+            <label class="slds-text-title textInputClass" for="monthList">Mes</label>
+            <select class="selectClass inputClass" name="month" data-id="monthList" id="monthList"
+                onchange={handletChange}>
+                <option value="">Todos </option>
+                <option value="01">Enero </option>
+                <option value="02">Febrero </option>
+                <option value="03">Marzo </option>
+                <option value="04">Abril </option>
+                <option value="05">Mayo </option>
+                <option value="06">Junio </option>
+                <option value="07">Julio </option>
+                <option value="08">Agosto </option>
+                <option value="09">Septiembre </option>
+                <option value="10">Octubre </option>
+                <option value="11">Noviembre </option>
+                <option value="12">Diciembre </option>
+            </select>
+        </div>
+        <div class="slds-col inputContainer">
+            <div class="slds-text-title textInputClass">Año</div>
+            <input data-id="inputYear" class="imputYear inputClass" type="text" id="inputYear" onchange={handletChange}
+                maxlength=4 minlength=4 pattern="^(19|20)\d{2}$" size="4">
+        </div>
+        <div class="slds-col inputContainer">
+            <button class="slds-button slds-button_brand inputClass" onclick={getData}>Buscar
+            </button>
+        </div>
+        <!-- </div> -->
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">N° Factura</div>
+            <div class="slds-text-title textValueClass">{headerInfo.factura}</div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Fecha</div>
+            <div class="slds-text-title textValueClass">
+                <p><lightning-formatted-date-time value={headerInfo.fecha} month="2-digit" day="2-digit"
+                        year="numeric"></lightning-formatted-date-time></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Desde</div>
+            <div class="slds-text-title textValueClass">
+                <p><lightning-formatted-date-time value={headerInfo.desde} month="2-digit" day="2-digit"
+                        year="numeric"></lightning-formatted-date-time></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Hasta</div>
+            <div class="slds-text-title textValueClass">
+                <p><lightning-formatted-date-time value={headerInfo.hasta} month="2-digit" day="2-digit"
+                        year="numeric"></lightning-formatted-date-time></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Vencimiento</div>
+            <div class="slds-text-title textValueClass">
+                <p><lightning-formatted-date-time value={headerInfo.vencimiento} month="2-digit" day="2-digit"
+                        year="numeric"></lightning-formatted-date-time></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Cierre</div>
+            <div class="slds-text-title textValueClass">
+                <p><lightning-formatted-date-time value={headerInfo.cierre} month="2-digit" day="2-digit"
+                        year="numeric"></lightning-formatted-date-time></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Total Factura</div>
+            <div class="slds-text-title textValueClass">
+                <p if:true={headerInfo.totalFacturaNegativo}><lightning-formatted-number
+                        style="color: #ff0000; font-size: xx-small;" value={headerInfo.totalFactura}
+                        format-style="currency"></lightning-formatted-number></p>
+                <p if:false={headerInfo.totalFacturaNegativo}><lightning-formatted-number
+                        style="color: #000000; font-size: xx-small;" value={headerInfo.totalFactura}
+                        format-style="currency"></lightning-formatted-number></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Total Ajustes/Dctos</div>
+            <div class="slds-text-title textValueClass">
+                <p if:true={headerInfo.totalAjustesNegativo}><lightning-formatted-number
+                        style="color: #ff0000; font-size: xx-small;" value={headerInfo.totalAjustes}
+                        format-style="currency"></lightning-formatted-number></p>
+                <p if:false={headerInfo.totalAjustesNegativo}><lightning-formatted-number
+                        style="color: #000000; font-size: xx-small;" value={headerInfo.totalAjustes}
+                        format-style="currency"></lightning-formatted-number></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Total Pagos</div>
+            <div class="slds-text-title textValueClass">
+                <p if:true={headerInfo.totalPagosNegativo}><lightning-formatted-number
+                        style="color: #ff0000; font-size: xx-small;" value={headerInfo.totalPagos}
+                        format-style="currency"></lightning-formatted-number></p>
+                <p if:false={headerInfo.totalPagosNegativo}><lightning-formatted-number
+                        style="color: #000000; font-size: xx-small;" value={headerInfo.totalPagos}
+                        format-style="currency"></lightning-formatted-number></p>
+            </div>
+        </div>
+        <div class="slds-col dataContainer">
+            <div class="slds-text-title textTitleClass">Saldo Actual</div>
+            <div class="slds-text-title textValueClass">
+                <p if:true={headerInfo.saldoActualNegativo}><lightning-formatted-number
+                        style="color: #ff0000; font-size: xx-small;" value={headerInfo.saldoActual}
+                        format-style="currency"></lightning-formatted-number></p>
+                <p if:false={headerInfo.saldoActualNegativo}><lightning-formatted-number
+                        style="color: #000000; font-size: xx-small;" value={headerInfo.saldoActual}
+                        format-style="currency"></lightning-formatted-number></p>
+            </div>
+        </div>
+    </div>
+
+
+</template>

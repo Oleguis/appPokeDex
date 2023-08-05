@@ -1,0 +1,49 @@
+.container-list-pkm {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.divFiltradosYPokemons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.noMostrarDiv {
+    transition: margin 0.3s ease 0.1s;
+    display: none;
+}
+
+.classDivFiltrados{
+    width: 28%;
+}
+
+.ancho100PorCiento {
+    width: 100%;
+}
+
+.iconDiv{
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 0;
+}
+
+.icono {
+    background-color: lightblue;
+    padding: 5px;
+    box-shadow: -2px -2px 3px 0px rgb(0 0 0 / 20%), 2px 2px 3px 2px rgb(0 0 0 / 40%);
+}
+
+.icono:hover {
+    box-shadow: -2px -2px 3px 1px rgb(0 0 0 / 48%), 2px 2px 0px 0px rgb(0 0 0 / 20%);
+}
+
+.titulo {
+    font-size: 1.2 rem;
+    margin-right:15px;
+}

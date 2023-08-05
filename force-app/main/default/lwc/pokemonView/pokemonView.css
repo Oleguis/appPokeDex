@@ -1,0 +1,48 @@
+.pokemon_card{
+    border: 2px solid red;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+.pokemon_imagen{
+    height: 100px;
+}
+
+.notModalShow{
+    display: none;
+}
+
+.modalcontainer{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height: 75%;
+    background-color:tan;
+    opacity: 10;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.seccion_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.div_header{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 5px;
+    background-color:aquamarine;
+}
+
+.pk_pie_pagina{
+    display: flex;
+    width: 100%;
+    justify-content:end;
+    background-color:transparent;
+}

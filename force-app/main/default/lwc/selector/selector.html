@@ -1,0 +1,51 @@
+<template>
+    <div>
+        <div class="wrapper">
+            <section class="content">
+                <div class="columns">
+                    <main class="main" >
+                        <div if:true={pokemons}>
+                            <div class="div-listado-size">Listado de Pokemos - ({totalPokemons})</div>
+                            <c-list 
+                                pokemons={pokemons}
+                                product-id={selectedProductId} 
+                                onproductselected={handleProductSelected}
+                            ></c-list>
+                        </div>
+                        <div if:false={pokemons} class="spinners">
+                            <!-- <div class="slds-spinner_container"  style="background:white"> -->
+                              <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                              </div>
+                            <!-- </div> -->
+                        </div>
+                    </main>
+                    <aside class="sidebar-second">
+                        <c-detail 
+                            pkms={pkmFiltered} 
+                            product-id={selectedProductId} 
+                            ondatadefiltrado={handledFiltererPokemons}>
+                        </c-detail>
+                    </aside>
+                </div>
+            </section>
+            <footer class="selector-footer">
+                <div>
+                    <img src="https://labsxd.com/wp-content/uploads/2019/08/cropped-vertical_para_uso_fondo_oscuro.png" alt="XDGen Labs">
+                    <p>Labs</p>
+                    <span>HD</span>
+                </div>
+                <p>XDGen - V Batch Dev</p>
+            </footer>
+        </div>
+    </div>
+    <template if:true={error}>
+        <div class="error-charget-data">
+            <h1 class="cuatro-cero-cuatro-404">404</h1>
+            <h1>Hubo un error a cargar los datos de pokemons desde la base de datos</h1>
+            <p>{error}</p>
+        </div>
+    </template>
+</template>

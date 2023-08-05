@@ -1,0 +1,27 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div onkeyup={handleKeyUp}>
+        <lightning-input name="enter-search" label="Filtrar pokemons por nombre" type="search"></lightning-input>
+    </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size_1-of-2">
+            <div class="slds-size_2-of-2">
+                <lightning-checkbox-group name="Por Tipo" label="Por Tipos" options={tiposOptions} value={filtererTipo}
+                    onchange={tHandleChange}></lightning-checkbox-group>
+                <lightning-radio-group name="radioOrderType" label="Tipo de Ordenado:" options={getOrderType}
+                    value={orderTypeValue}  onchange={orderTypeHandleChange} type="radio">
+                </lightning-radio-group>
+            </div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class="slds-size_2-of-2">
+                <lightning-checkbox-group name="Por Generación" label="Por Generación" options={generacionOptions}
+                    value={filtererGeneracion} onchange={gHandleChange}>
+                </lightning-checkbox-group>
+                <lightning-radio-group name="radioOrderBy" label="Ordenado por:" options={getOrderBy}
+                    value={orderByValue} onchange={orderByHandleChange} type="radio">
+                </lightning-radio-group>
+            </div>
+        </div>
+    </div>
+</template>

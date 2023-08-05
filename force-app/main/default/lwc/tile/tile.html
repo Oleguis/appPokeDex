@@ -1,0 +1,14 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class={activeClass}>
+        <a onclick={tileClick}>
+            <div class="title">{getTitulo}</div>
+            <img class="product-img" src={product.Imagen__c}></img>
+            <div class="footer">
+                <div if:true={getTipos.tipo1} class={getTipos.class1}>{getTipos.tipo1}</div>
+                <div if:true={getTipos.tipo2} class={getTipos.class2}>{getTipos.tipo2}</div>
+            </div>
+        </a>
+    </div>
+</template>
